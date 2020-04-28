@@ -10,6 +10,8 @@ pylint = "*"
 
 [packages]
 django = "*"
+django-debug-toolbar = "*"
+django-forms = "*"
 
 [requires]
 python_version = "3.8"

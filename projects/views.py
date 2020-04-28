@@ -3,16 +3,16 @@ from projects.models import Project
 
 
 def project_index(request):
-    project = Project.objects.all()
+    projects = Project.objects.all()
     context = {
-        'project': project
+        'projects': projects
     }
     return render(request, 'project_index.html', context)
 
 
 def project_detail(request, pk):
-    project = Project.objects.get(pk=pk)
+    projects = Project.objects.get(pk=pk)
     context = {
-        'project': project
+        'projects': projects
     }
     return render(request, 'project_detail.html', context)

@@ -3,9 +3,9 @@ from projects.models import Project
 
 
 def project_index(request):
-    projects = Project.objects.all()
+    project = Project.objects.all()
     context = {
-        'projects': projects
+        'project': project
     }
     return render(request, 'project_index.html', context)
 

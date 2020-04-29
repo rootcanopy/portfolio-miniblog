@@ -2,26 +2,29 @@
 
 {% block page_content %}
 
-<div class="col-md-8 offset-md-2">
-    <h1 class="blog_tit">Blog Feed</h1>
-    <hr>
-    {% for post in posts %}
-        <h2 class="post_tit"><a href="{% url 'blog_detail' post.id %}">{{ post.title }}</a></h2>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1 class="blog_tit mt-4 text-center">Blog Feed</h1>
+        <hr class="">
         
-        <small class="post_meta">
-
-            {{ post.created_on.date }} |&nbsp;
-            Categories:&nbsp;
+        {% for post in posts %}
+            <h2 class="post_tit"><a href="{% url 'blog_detail' post.id %}">{{ post.title }}</a></h2>
             
-        {% for category in post.categories.all %}
-            <a href="{% url 'blog_category' category.name %}">
-                {{ category.name }}
-            </a>
-        {% endfor %}
-        </small>
+            <small class="post_meta">
 
-        <p class="post_content">{{ post.body | slice:":400" }}...</p>
-    {% endfor %}
+                {{ post.created_on.date }} |&nbsp;
+                Categories:&nbsp;
+                
+            {% for category in post.categories.all %}
+                <a href="{% url 'blog_category' category.name %}">
+                    {{ category.name }}
+                </a>
+            {% endfor %}
+            </small>
+
+            <p class="post_content">{{ post.body | slice:":400" }}...</p>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
